@@ -1,0 +1,140 @@
+:root{
+    --blue: hsl(223, 87%, 63%);
+    --pale-blue: hsl(223, 89%, 82%);
+    --light-red: hsl(354, 100%, 66%);
+    --gray: hsl(0, 0%, 59%);
+    --very-dark-blue: hsl(209, 33%, 12%);
+
+    --font: 'Libre Franklin', sans-serif;
+}
+
+@font-face {
+    font-family: 'Libre Franklin';
+    src: url('../fonts/LibreFranklin-SemiBold.ttf');
+    font-weight: 600;
+}
+
+@font-face{
+    font-family: 'Libre Franklin';
+    src: url('../fonts/LibreFranklin-Light.ttf');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Libre Franklin';
+    src: url('../fonts/LibreFranklin-Bold.ttf');
+    font-weight: 700;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    font-family: var(--font);
+}
+
+main{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    margin-block-start: 25%;
+}
+
+.main-logo{
+    
+}
+.main-title{
+    margin-top: 4rem;
+
+    font-weight: 300;
+    font-size: 2.4rem;
+
+    color: var(--gray);
+}
+.main-title span{
+    font-weight: 700;
+
+    color: var(--very-dark-blue);
+}
+.main-CTA{
+    margin-top: 1rem;
+
+    font-size: 1.2rem;
+
+    color: var(--very-dark-blue);
+}
+.main-subscription{
+    display: flex;
+    flex-flow: column;
+
+    width: 28rem;
+    margin-top: 3rem;
+}
+.subscription-input{
+    height: 4rem;
+    padding-inline-start: 3rem;
+
+    font-size: 1.2rem;
+
+    border-radius: 2rem;
+    border: solid 0.1rem var(--pale-blue);
+}
+.subscription-input::placeholder{
+    color: var(--pale-blue);
+}
+.subscription-button{
+    height: 4rem;
+    margin-top: 1rem;
+
+    font-weight: 700;
+    font-size: 1.2rem;
+
+    background-color: var(--blue);
+    border: none;
+    border-radius: 2rem;
+    color: white;
+    box-shadow: 0 0.5rem 1rem 0.2rem rgba(0, 0, 0, 0.13);
+}
+.main-image{
+    width: 80%;
+    margin-top: 6rem;
+}
+
+footer{
+    position: absolute;
+    bottom: 2rem;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: column;
+
+    
+    height: 10rem;
+}
+
+.footer-logos{
+    display: flex;
+    justify-content: space-around;
+
+    width: 15rem;
+}
+.footer-logos img{
+    width: 2rem;
+    height: 2rem;
+}
+.footer-logos:nth-child(1) img{
+    object-fit: contain;
+}
+.footer-logos:nth-child(2) img{
+    
+}
+.footer-text{
+    font-size: 1.1rem;
+
+    color: var(--gray);
+}
