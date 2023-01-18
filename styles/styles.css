@@ -44,10 +44,6 @@ main{
     flex-flow: column;
     align-items: center;
 }
-
-.main-logo{
-    
-}
 .main-title{
     margin-top: 4rem;
 
@@ -150,6 +146,8 @@ footer{
     color: var(--gray);
 }
 
+
+
 @media screen and (max-height: 1000px) {
     
     body{
@@ -174,5 +172,49 @@ footer{
     
         
         height: 10rem;
+    }
+}
+
+@media screen and (max-height: 850px) {
+    
+    body{
+        padding-block-start: 2rem;
+    }
+
+    .main-image{
+        width: 40rem;
+    }
+}
+
+@media screen and (min-width: 800px){
+    .main-title{    
+        font-size: 4rem;
+    }
+    .main-CTA{
+        font-size: 1.8rem;
+    
+        color: var(--very-dark-blue);
+    }
+
+    .main-image{
+        width: 60rem;
+    }
+    .main-subscription{
+        flex-flow: row;
+        justify-content: center;
+    
+        width: 60rem;
+    }
+    .subscription-input{    
+        height: 4.5rem;
+        width: 35rem;
+
+        font-size: 1.6rem;
+    }
+    .subscription-button{    
+        margin-block-start: 0;
+        margin-inline-start: 1rem;
+        height: 4.5rem;
+        width: 15rem;
     }
 }
