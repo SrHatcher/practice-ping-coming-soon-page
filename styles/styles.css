@@ -34,6 +34,7 @@ body{
     position: relative;
     display: flex;
     justify-content: center;
+    align-items: center;
 
     font-family: var(--font);
 }
@@ -42,8 +43,6 @@ main{
     display: flex;
     flex-flow: column;
     align-items: center;
-
-    margin-block-start: 25%;
 }
 
 .main-logo{
@@ -120,21 +119,60 @@ footer{
 .footer-logos{
     display: flex;
     justify-content: space-around;
+    align-items: center;
 
-    width: 15rem;
+    width: 100%;
 }
 .footer-logos img{
-    width: 2rem;
-    height: 2rem;
+    width: 1.5rem;
+    height: 1.5rem;
 }
-.footer-logos:nth-child(1) img{
+.footer-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 3.5rem;
+    height: 3.5rem;
+
+    border: solid 0.1rem var(--gray);
+    border-radius: 50%;
+}
+.footer-logos .footer-logo:nth-child(1) img{
+    width: 2.5rem;
+    height: 2.5rem;
+
     object-fit: contain;
-}
-.footer-logos:nth-child(2) img{
-    
 }
 .footer-text{
     font-size: 1.1rem;
-
+    
     color: var(--gray);
+}
+
+@media screen and (max-height: 1000px) {
+    
+    body{
+        display: flex;
+        align-items: initial;
+        
+        padding-block-start: 10rem;
+    }
+
+    main{
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
+
+    footer{
+        position: absolute;
+        bottom: 2rem;
+        display: flex;
+        justify-content: space-around;
+        flex-flow: column;
+    
+        
+        height: 10rem;
+    }
 }
