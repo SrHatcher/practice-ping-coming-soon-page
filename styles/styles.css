@@ -1,13 +1,3 @@
-:root{
-    --blue: hsl(223, 87%, 63%);
-    --pale-blue: hsl(223, 89%, 82%);
-    --light-red: hsl(354, 100%, 66%);
-    --gray: hsl(0, 0%, 59%);
-    --very-dark-blue: hsl(209, 33%, 12%);
-
-    --font: 'Libre Franklin', sans-serif;
-}
-
 @font-face {
     font-family: 'Libre Franklin';
     src: url('../fonts/LibreFranklin-SemiBold.ttf');
@@ -19,11 +9,28 @@
     src: url('../fonts/LibreFranklin-Light.ttf');
     font-weight: 300;
 }
+@font-face {
+    font-family: 'Libre Franklin';
+    src: url('../fonts/LibreFranklin-LightItalic.ttf');
+    font-weight: 300;
+    font-style: italic;
+}
 
 @font-face {
     font-family: 'Libre Franklin';
     src: url('../fonts/LibreFranklin-Bold.ttf');
     font-weight: 700;
+}
+
+
+:root{
+    --blue: hsl(223, 87%, 63%);
+    --pale-blue: hsl(223, 89%, 82%);
+    --light-red: hsl(354, 100%, 66%);
+    --gray: hsl(0, 0%, 59%);
+    --very-dark-blue: hsl(209, 33%, 12%);
+
+    --font: 'Libre Franklin', sans-serif;
 }
 
 html{
@@ -71,18 +78,42 @@ main{
     width: 28rem;
     margin-top: 3rem;
 }
+.subscription-input_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.subcription-error{
+    display: none;
+}
 .subscription-input{
     height: 4rem;
+    width: 100%;
     padding-inline-start: 3rem;
 
     font-size: 1.2rem;
 
     border-radius: 2rem;
     border: solid 0.1rem var(--pale-blue);
+    outline: none;
 }
 .subscription-input::placeholder{
     color: var(--pale-blue);
 }
+/*----------error messages states----------------------*/
+.subcription-error--active{
+    margin-block-start: 0.5rem;
+    
+    font-size: 1.1rem;
+    font-style: italic;
+    
+    color: var(--light-red);
+}
+
+.subscription-input_error--active{
+    border: solid 0.1rem var(--light-red);
+}
+/*----------end of error messages---------------*/
 .subscription-button{
     height: 4rem;
     margin-top: 1rem;
@@ -95,10 +126,16 @@ main{
     border-radius: 2rem;
     color: white;
     box-shadow: 0 0.5rem 1rem 0.2rem rgba(0, 0, 0, 0.13);
+    cursor: pointer;
+    transition: all ease-in-out 0.1s;
 }
+.subscription-button:active{
+    transform: scale(0.95);
+}
+
 .main-image{
     width: 80%;
-    margin-top: 6rem;
+    margin-top: 4rem;
 }
 
 footer{
@@ -119,26 +156,20 @@ footer{
 
     width: 100%;
 }
-.footer-logos img{
-    width: 1.5rem;
-    height: 1.5rem;
-}
 .footer-logo{
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 3.6rem;
+    height: 3.6rem;
+
+    text-decoration: none;
 
     border: solid 0.1rem var(--gray);
     border-radius: 50%;
-}
-.footer-logos .footer-logo:nth-child(1) img{
-    width: 2.5rem;
-    height: 2.5rem;
 
-    object-fit: contain;
+    color: var(--blue);
 }
 .footer-text{
     font-size: 1.1rem;
@@ -146,7 +177,67 @@ footer{
     color: var(--gray);
 }
 
+.modal-container{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
 
+    background-color: rgba(0, 0, 0, 0.199);
+}
+
+.modal-message_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 35rem;
+    height: 25rem;
+
+    background-color: white;
+    border-radius: 1rem;
+}
+
+.modal-message_title{
+    font-size: 3.6rem;
+    font-weight: 700;
+
+    color: var(--very-dark-blue);
+}
+
+.modal-message_text{
+    margin-block-start: 1.5rem;
+
+    font-size: 1.6rem;
+
+    color: var(--very-dark-blue);
+}
+
+.modal-button{
+    width: 15rem;
+    height: 4rem;
+    margin-block-start: 3.5rem;
+
+    font-size: 1.6rem;
+    font-weight: 700;
+
+    background-color: var(--blue);
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    box-shadow: 0 0.5rem 1rem 0.2rem rgba(0, 0, 0, 0.13);
+    cursor: pointer;
+    transition: all ease-in-out 0.1s;
+}
+
+.modal-button:active{
+    transform: scale(0.95);
+}
 
 @media screen and (max-height: 1000px) {
     
@@ -154,7 +245,7 @@ footer{
         display: flex;
         align-items: initial;
         
-        padding-block-start: 10rem;
+        padding-block-start: 7rem;
     }
 
     main{
@@ -205,6 +296,13 @@ footer{
     
         width: 60rem;
     }
+
+    .subscription-input_container{
+        display: initial;
+        flex-direction: none;
+        align-items: none;
+    }
+
     .subscription-input{    
         height: 4.5rem;
         width: 35rem;
@@ -216,5 +314,22 @@ footer{
         margin-inline-start: 1rem;
         height: 4.5rem;
         width: 15rem;
+    }
+
+    /*----------error messages state------------------*/
+    .subcription-error--active{
+        margin-inline-start: 3.5rem;
+    }
+    /*----------end of error messages state------------------*/
+}
+
+@media (hover:hover){
+    .subscription-button:hover{
+        background-color: var(--pale-blue);
+    }
+    .footer-logo:hover{
+        background-color: var(--blue);
+        color: white;
+        cursor: pointer;
     }
 }
